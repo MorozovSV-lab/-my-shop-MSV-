@@ -1,0 +1,32 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+driver = webdriver.Chrome(r"C:\Users\Morozi\Desktop\chromedriver_win32\chromedriver.exe")
+driver.maximize_window()
+driver.get("https://practice.automationtesting.in/")
+
+driver.execute_script("window.scrollBy(0, 800);")
+time.sleep(5)
+Read = driver.find_element_by_css_selector("[title='Thinking in HTML']")
+Read.click()
+time.sleep(5)
+Rev = driver.find_element_by_css_selector(".reviews_tab")
+Rev.click()
+Zvezda = driver.find_element_by_css_selector(".star-5")
+Zvezda.click()
+time.sleep(5)
+Coment = driver.find_element_by_id("comment")
+Coment.send_keys("Nice book!")
+time.sleep(5)
+Name = driver.find_element_by_id("author")
+Name.send_keys("Sergey")
+Mail = driver.find_element_by_id("email")
+Mail.send_keys("moro7z@yandex.ru")
+time.sleep(5)
+Box = driver.find_element_by_id("wp-comment-cookies-consent")
+Box.click()
+Sub = driver.find_element_by_id("submit")
+Sub.click()
